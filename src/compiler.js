@@ -18,6 +18,7 @@
 
 import fs from "fs/promises"
 import findByPropsDebug from "./findByPropsDebug.js"
+import chalk from "chalk"
 
 function Compile(code){
 
@@ -27,6 +28,10 @@ function Compile(code){
 
     let result = code
     let calls = result.match(/findByProps\([^\)]*\)(\.[^\).]*\))?/g)
+    if (!calls){
+        console.log("[!] Snippet provided doesn't use findByProps.")
+        process.exit(0)
+    }
     let changed = []
     
     
@@ -63,7 +68,16 @@ async function main(){
     console.log("Compiling.")
     let start = Date.now()
     let result = Compile(content)
-    
+    try {
+        let latestHash = await (await fetch("https://canary.discord.com/app")).headers.get("x-build-id")
+        let BUILD_INFO;
+        eval("BUILD_INFO={"+JSON.parse(await fs.readFile("./chunks/825287.json",{encoding:"utf-8"})).exports.default.match(/buildNumber:"\d+",versionHash:".*"}/g))
+        console.log(`${latestHash} -> ${BUILD_INFO.versionHash}`)
+        console.log(latestHash === BUILD_INFO.versionHash ? chalk.green("✔️ Using latest discord build.") : chalk.red("✨ Warning! update your chunks folder by running: npm run scrapeChunks. (You are running this compiler on a older build of discord)"))
+    }catch(e){
+        console.log(e)
+        console.log(chalk.yellow("✨ Warning! couldn't scan for latest discord build, you might be using older build chunks folder"))
+    }
     console.log(`Done! Finished in ${Date.now() - start}`)
     await fs.writeFile(newFilePath,result,{encoding:"utf-8"})
     console.log(`Saved to ${newFilePath}`)

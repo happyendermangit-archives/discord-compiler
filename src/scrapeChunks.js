@@ -21,10 +21,18 @@ import fs from "fs/promises";
 
 (async () => {
   try {
-    const browser = await puppeteer.launch({ headless: false });
+    await fs.mkdir("./chunks")
+    const browser = await puppeteer.launch({ headless: true });
     const page = await browser.newPage();
     await page.goto('https://canary.discord.com/login');
     await page.setViewport({ width: 1080, height: 1024 });
+
+    // load all modules
+    await page.evaluate(()=>{
+      (async()=>{let r;webpackChunkdiscord_app.push([[Symbol()],{},e=>r=e]);for(let i=0;i<100000;i++){if(r.u(i))await r.e(i)}})()
+    })
+
+    // get all exports and convert functions to their code as string (func.toString())
     const result = JSON.parse(await page.evaluate(() => {
       let wreq;
       webpackChunkdiscord_app.push([[Symbol()],{},e=>wreq=e]);
@@ -75,12 +83,11 @@ import fs from "fs/promises";
       }
       return JSON.stringify(result);
     }));
-    //const result = await page.evaluate(()=>window.result)
 
     console.log(Object.keys(result).length)
     for (let key in result) {
       await fs.writeFile(`./chunks/${key}.json`, JSON.stringify(result[key], null, 4), { encoding: "utf-8" });
-      //console.log(`${key} saved.`);
+      console.log(`${key} saved.`);
     }
     console.log("Done! Scraped all chunks");
 
