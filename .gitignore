@@ -1,0 +1,6 @@
+# Ignore generated node modules folder
+node_modules
+
+# Ignore generated chunks folder
+chunks
+

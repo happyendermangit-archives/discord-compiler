@@ -1,0 +1,16 @@
+{
+  "name": "discord-auto-types",
+  "version": "1.0.0",
+  "description": "",
+  "type":"module",
+  "main": "test.js",
+  "scripts": {
+    "scrapeChunks": "mkdir chunks && node src/scrapeChunks.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "puppeteer": "^22.2.0"
+  }
+}
