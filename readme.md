@@ -13,7 +13,7 @@
 
 1. Clone the repo
 ```sh
-$ git clone && cd discord-compiler
+$ git clone https://github.com/happyendermangit/discord-compiler && cd discord-compiler
 ```
 2. Install the required modules:
 ```sh
