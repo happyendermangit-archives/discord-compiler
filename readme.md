@@ -1,15 +1,15 @@
 # Discord snippets compiler:
 
-### 🚀 The best compiler for discord snippets.
-#### Easily convert findByProps snippet's to one snippet.
+### 🚀 The best compiler for Discord snippets.
+#### Easily convert findByProps snippets to one snippet.
 
 [![Discord](https://img.shields.io/discord/1103066670576193627?style=for-the-badge&color=%235562EA)](https://discord.gg/Q6UYNawvaF)
  ![GitHub contributors](https://img.shields.io/github/contributors/happyendermangit/discord-compiler?style=for-the-badge) ![GitHub issues](https://img.shields.io/github/issues/happyendermangit/discord-compiler?style=for-the-badge) [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/happyenderman)
 
-# ⁉️What it does?
-- This tool Compile's discord findByProps snippet's to one snippet, and removes findByProps completely from the snippet  
+# ⁉️ What it does?
+- This tool compiles Discord's findByProps snippets to one snippet, and removes findByProps completely from the snippet.
 
-# 👀How to use?
+# 👀 How to use?
 
 1. Clone the repo
 ```sh
@@ -30,7 +30,7 @@ $ node ./src/compiler.js <file path> # The result is saved to the same
 ```
 5. Profit!   
 
-## 📸Showcase:
+## 📸 Showcase:
 
 #### Before:
 ```js
@@ -55,14 +55,15 @@ wreq("913144").default.addInterceptor(event=>{
 })  
 ```
 
-## ✨Why this compiler?
+## ✨ Why use a compiler if you can just execute other snippets in a few moments?
 
-- Most snippet's in discord use findByProps, which means you'd need to look for findByProps snippet first to use the snippet and that wastes your time, so this compiler solves this problem! 
+- Most snippets in Discord use findByProps, which means you'd need to look for findByProps snippet first to use the snippet and that wastes your time, so this compiler solves this problem! 
 
-## 🤔What is findByProps?
-- [findByProps](./findByProps.md) is a popular snippet used by most snippet's, it is used to find discord functions & objects.
+## 🤔 What is findByProps?
+- [findByProps](./findByProps.md) is a popular snippet used by most snippets, it is used to find Discord's functions & objects.
 
+  #
+  #
+  #
 
-## 👨‍💻Who made this compiler?
-
-[Happy enderman](https://github.com/happyendermangit) (Aka **``|__.JS.__|``**) made this compiler
+### Copyright ©️ [Happy enderman](https://github.com/happyendermangit) (Aka **``|__.JS.__|``**) 2024
